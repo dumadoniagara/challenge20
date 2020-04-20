@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Challenge 20 By Adnan</title>
+</head>
+
+<body>
+  <div class="container" style="margin-top: 30px">
+  <h1>BREAD (Browse, Read, Edit, Add, Delete)</h1>
+  <h2>FILTER</h2>
+    <!--FILTER -->
+    <form action="" method="GET">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="hidden" name="page" value="1">
+                <input type="checkbox" class="form-check-input" name="isID" <%= (isID) == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  ID
+                </label>
+              </div>
+            </label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="ID" name="valueID" value="<%= query.valueID %>"`>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isString" <%= (query.isString) == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  String
+                </label>
+              </div>
+            </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="String" name="valueString" value="<%= query.valueString %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isInt" <%= query.isInt == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  Integer
+                </label>
+              </div>
+            </label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Integer" name="valueInt" value="<%= query.valueInt %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="checkbox" step="0.01" class="form-check-input" name="isFloat" <%= query.isFloat == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  Float
+                </label>
+              </div>
+            </label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Float" name="valueFloat" value="<%= query.valueFloat %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isDate" <%= query.isDate == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  Date
+                </label>
+              </div>
+            </label>
+                <div class="col-sm-4">
+                  <input type="date" class="form-control" placeholder="Start date" name="start" value="<%= query.start %>">
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            </label>
+                <div class="col-sm-4">
+                  <p>to</p>
+                  <input type="date" class="form-control" placeholder="End date" name="end" value="<%= query.valueID %>">
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isBool"  <%= query.isBool == 'on' ? "checked" : "" %>/>
+                <label class="form-check-label" for="defaultCheck1">
+                  Boolean
+                </label>
+              </div>
+            </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="valueBool" id="bool">
+                        <option disabled>choose the boolean</option>
+                        <option <%= query.bool ? selected : "" %>>true</option>
+                        <option <%= query.bool ? selected : "" %>>false</option>
+                    </select>
+                </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" name="button" class="btn btn-primary">Search</a>
+            </div>
+        </div>
+
+        </form>
+        
+        <!-- VIEW TABLES -->
+    <table border="1" class="table table-striped" style="margin-top: 50px;">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">String</th>
+          <th scope="col">Integer</th>
+          <th scope="col">Float</th>
+          <th scope="col">Date</th>
+          <th scope="col">Boolean</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item, index) => { %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.string %></td>
+          <td><%= item.integer %></td>
+          <td><%= item.float %></td>
+          <td><%= item.date %></td>
+          <td><%= item.bool %></td>
+          <td>
+            <a role="button" class="btn btn-success" href="edit/<%= item.id %>" style="margin-right: 10px">Edit</button>
+              <a role="button" class="btn btn-danger" href="delete/<%= item.id %>">Delete</button>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <!--PAGINATION-->
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item <%= (current == 1) ? 'disabled' : '' %>">
+          <a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current-1)) : '?page=' + Number(current-1) %>">Previous</a>
+        </li>
+        <% for(let i = (current == 1) ? current : current - 1; i <= pages && i <= current + 5; i++){ %>
+        <li class="page-item <%= (i == current) ? 'active' : '' %>"><a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + i) : '?page=' + i %>"><%=i%></a></li>
+        <% } %>
+        <li class="page-item <%= (current == pages) ? 'disabled' : '' %> ">
+          <a class="page-link" href="<%=  (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current + 1)) : '?page=' + Number(current + 1)%>">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a role="button" href="add" class="btn btn-primary">Add</a>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
