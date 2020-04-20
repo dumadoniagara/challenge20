@@ -81,9 +81,9 @@ app.post('/edit/:id', (req, res) => {
 })
 
 // FILTER 
-app.get('/filter', (req, res) => {
-    res.render('filter');
-})
+// app.get('/filter', (req, res) => {
+//     res.render('/');
+// })
 
 app.post('/filter', (req, res) => {
     let data = {

@@ -14,7 +14,123 @@
 
 <body>
     <div class="container mt-4">
-        <h2 style="text-align: center">WELCOME</h2>
+        <form action="/filter" method="POST">
+            <div class="container mt-4">
+                <h3 style="text-align: left">WELCOME!</h3>
+                <h4 style="text-align: left">SEARCH : </h4>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="id" name="checkId">
+                            <label class="form-check-label" for="id">
+                                ID
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="text" name="id" class="form-control" id="id" placeholder="ID">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" name="checkString" type="checkbox" id="string">
+                            <label class="form-check-label" name="checkString" for="checkString">
+                                String
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="text" name="string" class="form-control" id="string" placeholder="String">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkInteger" id="checkInteger">
+                            <label class="form-check-label" for="integer">
+                                Integer
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="number" name="integer" placeholder="Integer">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkFloat" id="checkFloat">
+                            <label class="form-check-label" for="checkFloat">
+                                Float
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="number" class="form-control" step="0.1" id="float" name="float"
+                                placeholder="Float">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkDate" id="checkDate">
+                            <label class="form-check-label" for="date">
+                                Date
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="startDate" id="date"
+                                placeholder="masukan date">
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <p class="col offset-2">to</p>
+                    <div class="w-100"></div>
+                    <div class="col-3 offset-2">
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="endDate" id="date" placeholder="masukan date">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkBoolean" id="checkBoolean">
+                            <label class="form-check-label" for="boolean">
+                                Boolean
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <select name="boolean" id="boolean">
+                                <option selected disabled> choose the boolean</option>
+                                <option name="boolean" class="form-control" value="true">True</option>
+                                <option name="boolean" class="form-control" value="false">False</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark">Search</button>
+                <a href="/">
+                    <button type="button" class="btn btn-dark">All</button>
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="container mt-4">
+        <!-- <h2 style="text-align: center"></h2> -->
         <table class="table table-striped mt-4">
             <thead>
                 <tr>
@@ -45,12 +161,10 @@
                 </tr>
                 <% }) %>
             </tbody>
-            <a href="/filter">
-                <button type="button" class="btn btn-dark">Search</button>
-            </a>
-            <a href="/add">
-                <button type="button" class="btn btn-dark">Add New</button>
-            </a>
         </table>
+        <a href="/add">
+            <button type="button" class="btn btn-dark">Add New</button>
+        </a>
 </body>
+
 </html>
