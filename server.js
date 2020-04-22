@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 
     const page = req.query.page || 1;
     const limit = 5;
-    let offset = (page - 1) * limit
+    const offset = (page - 1) * limit;
 
     db.all(`SELECT COUNT (ID) as total FROM jenisdata`, (err, rows) => {
         if (err) {
