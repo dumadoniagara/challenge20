@@ -14,11 +14,12 @@
 
 <body>
     <div class="container mt-4">
-        <form action="/filter" method="POST">
+        <form action="/" method="GET">
             <div class="container mt-4">
                 <h3 style="text-align: left">WELCOME!</h3>
                 <h4 style="text-align: left">SEARCH : </h4>
                 <div class="row">
+
                     <div class="col">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="id" name="checkId">
@@ -27,12 +28,15 @@
                             </label>
                         </div>
                     </div>
+
                     <div class="col-10">
                         <div class="form-group">
-                            <input type="text" name="id" class="form-control" id="id" placeholder="ID">
+                            <input type="text" name="id" class="form-control" id="id" placeholder="ID" value="">
                         </div>
                     </div>
+
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
@@ -48,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
@@ -63,6 +68,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
@@ -79,6 +85,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-2">
                         <div class="form-check">
@@ -103,6 +110,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
@@ -122,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+
                 <button type="submit" class="btn btn-dark">Search</button>
                 <a href="/">
                     <button type="button" class="btn btn-dark">All</button>
@@ -162,9 +171,23 @@
                 <% }) %>
             </tbody>
         </table>
-        <a href="/add">
-            <button type="button" class="btn btn-dark">Add New</button>
-        </a>
+        <div class="container">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <%for (let i=1; i <= pages; i++ ){%>
+                    <li class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i%></a></li>
+                    <%}%>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <a href="/add">
+                <button type="button" class="btn btn-dark">Add New</button>
+            </a>
+        </div>
+
 </body>
 
 </html>
