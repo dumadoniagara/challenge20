@@ -136,9 +136,3 @@ app.post('/edit/:id', (req, res) => {
 })
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
-
-
-
-// LAST UPDATE :
-// THERE ARE STILL BUG IN SEARCH FEATURE FOR DATE, BOOLEAN, AND ID FILTERS PLEASE REVISED!
-// PLEASE MAKE PAGINATION
