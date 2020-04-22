@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="GET">
+        <h2>Hello World</h2>
+        <input type="checkbox" id="0" name="cId" <%= qs.cId ? "on" : "off"  %>>
+        <label for="0"> Id </label> <br>
+        <input type="text" id="0" name="id" value="<%= qs.id %>"> <br>
+        <input type="checkbox" id="1" name="cNama" <%= qs.cNama ? "on" : "off" %>>
+        <label for="1"> Nama </label> <br>
+        <input type="text" id="1" name="nama"> <br>
+        <button type="submit">submit</button>
+    </form>
+
+</body>
+
+</html>
